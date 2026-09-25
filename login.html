@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login - ResumeAI</title>
+
+
+    <style>
+
+        /* ========================================
+           RESET
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            background: #f5f7fb;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: #1f2937;
+        }
+
+
+        /* ========================================
+           HEADER
+        ======================================== */
+
+        .login-header {
+            width: 100%;
+            height: 72px;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        .login-logo {
+            text-decoration: none;
+
+            font-size: 27px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+
+        .login-logo span {
+            color: #6c63ff;
+        }
+
+
+        .back-home {
+            color: #64748b;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        .back-home:hover {
+            color: #6c63ff;
+        }
+
+
+        /* ========================================
+           MAIN
+        ======================================== */
+
+        .login-main {
+            width: 100%;
+
+            min-height: calc(100vh - 132px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            padding: 70px 20px;
+        }
+
+
+        /* ========================================
+           LOGIN CARD
+        ======================================== */
+
+        .login-card {
+            width: 100%;
+
+            max-width: 450px;
+
+            background: #ffffff;
+
+            padding: 40px;
+
+            border-radius: 14px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* ========================================
+           HEADING
+        ======================================== */
+
+        .login-heading {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .login-heading h1 {
+            font-size: 30px;
+
+            color: #111827;
+
+            margin-bottom: 10px;
+        }
+
+
+        .login-heading p {
+            color: #64748b;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ========================================
+           MESSAGE
+        ======================================== */
+
+        #authMessage {
+            display: none;
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+        }
+
+
+        /* ========================================
+           FORM
+        ======================================== */
+
+        .login-group {
+            width: 100%;
+
+            margin-bottom: 20px;
+        }
+
+
+        .login-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #1f2937;
+        }
+
+
+        /* ========================================
+           INPUT
+        ======================================== */
+
+        .login-input {
+            width: 100%;
+
+            height: 50px;
+
+            padding: 0 14px;
+
+            border: 1px solid #d5dae3;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            background: #ffffff;
+
+            color: #1f2937;
+
+            font-size: 15px;
+        }
+
+
+        .login-input:focus {
+            border-color: #6c63ff;
+
+            box-shadow:
+                0 0 0 3px rgba(108, 99, 255, 0.10);
+        }
+
+
+        .login-input::placeholder {
+            color: #9ca3af;
+        }
+
+
+        /* ========================================
+           PASSWORD
+        ======================================== */
+
+        .password-wrapper {
+            position: relative;
+
+            width: 100%;
+        }
+
+
+        .password-wrapper .login-input {
+            padding-right: 50px;
+        }
+
+
+        .password-toggle {
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            color: #64748b;
+        }
+
+
+        .password-toggle:hover {
+            color: #6c63ff;
+        }
+
+
+        /* ========================================
+           FORGOT PASSWORD
+        ======================================== */
+
+        .forgot-password {
+            display: block;
+
+            text-align: right;
+
+            margin-top: 8px;
+
+            color: #6c63ff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ========================================
+           LOGIN BUTTON
+        ======================================== */
+
+        .login-button {
+            width: 100%;
+
+            height: 50px;
+
+            margin-top: 8px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #6c63ff;
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .login-button:hover {
+            background: #574fd6;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* ========================================
+           SIGNUP LINK
+        ======================================== */
+
+        .signup-text {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        .signup-text a {
+            color: #6c63ff;
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        .login-footer {
+            width: 100%;
+
+            height: 60px;
+
+            background: #ffffff;
+
+            border-top: 1px solid #e5e7eb;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .login-footer p {
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 600px) {
+
+            .login-header {
+                padding: 0 20px;
+            }
+
+
+            .login-logo {
+                font-size: 23px;
+            }
+
+
+            .back-home {
+                font-size: 13px;
+            }
+
+
+            .login-main {
+                padding: 40px 15px;
+            }
+
+
+            .login-card {
+                padding: 30px 22px;
+            }
+
+
+            .login-heading h1 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         HEADER
+    ======================================== -->
+
+    <header class="login-header">
+
+        <a
+            href="index.html"
+            class="login-logo"
+        >
+            Resume<span>AI</span>
+        </a>
+
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to Home
+        </a>
+
+    </header>
+
+
+
+    <!-- ========================================
+         MAIN
+    ======================================== -->
+
+    <main class="login-main">
+
+        <div class="login-card">
+
+
+            <!-- Heading -->
+
+            <div class="login-heading">
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Login to continue building your professional resume.
+                </p>
+
+            </div>
+
+
+            <!-- Message -->
+
+            <div id="authMessage"></div>
+
+
+            <!-- Login Form -->
+
+            <form id="loginForm">
+
+
+                <!-- Email -->
+
+                <div class="login-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="login-input"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="login-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="login-input"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+
+                    <a
+                        href="forgot-password.html"
+                        class="forgot-password"
+                    >
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- Login Button -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- Signup -->
+
+            <div class="signup-text">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Create an Account
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer class="login-footer">
+
+        <p>
+            © 2026 ResumeAI. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+
+    <script src="js/auth.js"></script>
+
+
+</body>
+
+</html>

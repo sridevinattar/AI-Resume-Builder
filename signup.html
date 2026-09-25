@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - ResumeAI</title>
+
+    <style>
+
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f7fb;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        .signup-header {
+            width: 100%;
+            height: 72px;
+
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .signup-logo {
+            font-size: 27px;
+            font-weight: 700;
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .signup-logo span {
+            color: #6c63ff;
+        }
+
+        .back-home {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-home:hover {
+            color: #6c63ff;
+        }
+
+
+        /* ================================
+           MAIN
+        ================================= */
+
+        .signup-main {
+            width: 100%;
+            min-height: calc(100vh - 132px);
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            padding: 50px 20px;
+        }
+
+
+        /* ================================
+           CARD
+        ================================= */
+
+        .signup-card {
+            width: 100%;
+            max-width: 500px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 14px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* ================================
+           HEADING
+        ================================= */
+
+        .signup-heading {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .signup-heading h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .signup-heading p {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+
+        /* ================================
+           MESSAGE
+        ================================= */
+
+        #authMessage {
+            display: none;
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           FORM GROUP
+        ================================= */
+
+        .signup-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .signup-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            color: #1f2937;
+        }
+
+
+        /* ================================
+           INPUT
+        ================================= */
+
+        .signup-input {
+            width: 100%;
+            height: 50px;
+
+            padding: 0 14px;
+
+            border: 1px solid #d5dae3;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            background: white;
+
+            font-size: 15px;
+
+            color: #1f2937;
+        }
+
+        .signup-input:focus {
+            border-color: #6c63ff;
+
+            box-shadow:
+                0 0 0 3px rgba(108, 99, 255, 0.10);
+        }
+
+        .signup-input::placeholder {
+            color: #9ca3af;
+        }
+
+
+        /* ================================
+           PASSWORD
+        ================================= */
+
+        .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-wrapper .signup-input {
+            padding-right: 50px;
+        }
+
+        .password-toggle {
+            position: absolute;
+
+            right: 12px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            color: #64748b;
+        }
+
+
+        /* ================================
+           PASSWORD TEXT
+        ================================= */
+
+        .password-help {
+            display: block;
+
+            margin-top: 7px;
+
+            font-size: 12px;
+
+            color: #64748b;
+        }
+
+
+        /* ================================
+           BUTTON
+        ================================= */
+
+        .signup-button {
+            width: 100%;
+            height: 50px;
+
+            margin-top: 5px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #6c63ff;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .signup-button:hover {
+            background: #574fd6;
+        }
+
+
+        /* ================================
+           LOGIN LINK
+        ================================= */
+
+        .login-text {
+            text-align: center;
+
+            margin-top: 24px;
+
+            font-size: 14px;
+
+            color: #64748b;
+        }
+
+        .login-text a {
+            color: #6c63ff;
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        .signup-footer {
+            width: 100%;
+            height: 60px;
+
+            background: white;
+
+            border-top: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signup-footer p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .signup-header {
+                padding: 0 20px;
+            }
+
+            .signup-logo {
+                font-size: 23px;
+            }
+
+            .back-home {
+                font-size: 13px;
+            }
+
+            .signup-main {
+                padding: 30px 15px;
+            }
+
+            .signup-card {
+                padding: 30px 22px;
+            }
+
+            .signup-heading h1 {
+                font-size: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="signup-header">
+
+        <a href="index.html" class="signup-logo">
+            Resume<span>AI</span>
+        </a>
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </header>
+
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main class="signup-main">
+
+        <div class="signup-card">
+
+
+            <!-- Heading -->
+
+            <div class="signup-heading">
+
+                <h1>
+                    Create Your Account
+                </h1>
+
+                <p>
+                    Start building your professional resume today.
+                </p>
+
+            </div>
+
+
+            <!-- Message -->
+
+            <div id="authMessage"></div>
+
+
+            <!-- Signup Form -->
+
+            <form id="signupForm">
+
+
+                <!-- Full Name -->
+
+                <div class="signup-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="signup-input"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="signup-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="signup-input"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="signup-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="signup-input"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                    <small class="password-help">
+                        Password must contain at least 6 characters.
+                    </small>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+
+                <div class="signup-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            class="signup-input"
+                            placeholder="Confirm your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="confirmPassword"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="signup-button"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <!-- Login -->
+
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="signup-footer">
+
+        <p>
+            © 2026 ResumeAI. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script src="js/auth.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,3760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Builder - ResumeAI</title>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body class="builder-page">
+
+
+    <!-- ================================================= -->
+    <!-- TOP NAVBAR -->
+    <!-- ================================================= -->
+
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm builder-navbar">
+
+        <div class="container-fluid px-4">
+
+
+            <!-- Logo -->
+
+            <a class="navbar-brand fw-bold fs-4"
+                href="dashboard.html">
+
+                <i class="bi bi-file-earmark-person-fill text-primary"></i>
+
+                Resume<span class="text-primary">AI</span>
+
+            </a>
+
+
+            <!-- Page Title -->
+
+            <div class="builder-title d-none d-md-block">
+
+                <span>
+                    <i class="bi bi-pencil-square"></i>
+                    Resume Builder
+                </span>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="d-flex gap-2 ms-auto">
+
+                <a href="dashboard.html"
+                    class="btn btn-outline-secondary">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    <span class="d-none d-sm-inline">
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    id="saveResumeTop">
+
+                    <i class="bi bi-save"></i>
+
+                    <span class="d-none d-sm-inline">
+                        Save
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="window.print()">
+
+                    <i class="bi bi-download"></i>
+
+                    <span class="d-none d-sm-inline">
+                        Download
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================================================= -->
+    <!-- BUILDER AREA -->
+    <!-- ================================================= -->
+
+    <main class="builder-container">
+
+        <div class="container-fluid">
+
+            <div class="row g-4">
+
+
+                <!-- ================================================= -->
+                <!-- LEFT SIDE - FORM -->
+                <!-- ================================================= -->
+
+                <div class="col-xl-6">
+
+
+                    <!-- Resume Name -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-file-earmark-text text-primary"></i>
+
+                                    Resume Information
+
+                                </h5>
+
+                                <p>
+                                    Give your resume a name.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="builder-card-body">
+
+                            <label
+                                for="resumeName"
+                                class="form-label fw-semibold">
+
+                                Resume Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resumeName"
+                                class="form-control"
+                                placeholder="Example: Software Developer Resume">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- PERSONAL INFORMATION -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-person text-primary"></i>
+
+                                    Personal Information
+
+                                </h5>
+
+                                <p>
+                                    Add your basic contact information.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="builder-card-body">
+
+                            <div class="row g-3">
+
+
+                                <!-- Full Name -->
+
+                                <div class="col-12">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        Full Name
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        class="form-control live-input"
+                                        placeholder="John Doe">
+
+                                </div>
+
+
+                                <!-- Email -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        Email
+
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        class="form-control live-input"
+                                        placeholder="john@example.com">
+
+                                </div>
+
+
+                                <!-- Phone -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        Phone Number
+
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        class="form-control live-input"
+                                        placeholder="+91 98765 43210">
+
+                                </div>
+
+
+                                <!-- Address -->
+
+                                <div class="col-12">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        Address
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="address"
+                                        class="form-control live-input"
+                                        placeholder="City, State, Country">
+
+                                </div>
+
+
+                                <!-- LinkedIn -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        LinkedIn Profile
+
+                                    </label>
+
+                                    <input
+                                        type="url"
+                                        id="linkedin"
+                                        class="form-control live-input"
+                                        placeholder="linkedin.com/in/yourname">
+
+                                </div>
+
+
+                                <!-- GitHub -->
+
+                                <div class="col-md-6">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        GitHub Portfolio
+
+                                    </label>
+
+                                    <input
+                                        type="url"
+                                        id="github"
+                                        class="form-control live-input"
+                                        placeholder="github.com/yourname">
+
+                                </div>
+
+
+                                <!-- Website -->
+
+                                <div class="col-12">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        Personal Website
+                                        <span class="text-secondary">
+                                            (Optional)
+                                        </span>
+
+                                    </label>
+
+                                    <input
+                                        type="url"
+                                        id="website"
+                                        class="form-control live-input"
+                                        placeholder="https://yourwebsite.com">
+
+                                </div>
+
+
+                                <!-- Profile Photo -->
+
+                                <div class="col-12">
+
+                                    <label
+                                        class="form-label fw-semibold">
+
+                                        Profile Photo
+                                        <span class="text-secondary">
+                                            (Optional)
+                                        </span>
+
+                                    </label>
+
+                                    <input
+                                        type="file"
+                                        id="profilePhoto"
+                                        class="form-control"
+                                        accept="image/*">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- PROFESSIONAL SUMMARY -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-person-lines-fill text-primary"></i>
+
+                                    Professional Summary
+
+                                </h5>
+
+                                <p>
+                                    Introduce yourself professionally.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-primary">
+
+                                <i class="bi bi-stars"></i>
+
+                                AI Suggest
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="builder-card-body">
+
+                            <textarea
+                                id="summary"
+                                class="form-control live-input"
+                                rows="5"
+                                placeholder="Write a short professional summary about yourself..."></textarea>
+
+                            <small class="text-secondary">
+
+                                Recommended: 2–4 sentences.
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- EDUCATION -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-mortarboard text-primary"></i>
+
+                                    Education
+
+                                </h5>
+
+                                <p>
+                                    Add your educational qualifications.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-primary"
+                                id="addEducation">
+
+                                <i class="bi bi-plus"></i>
+
+                                Add Education
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="builder-card-body"
+                            id="educationContainer">
+
+
+                            <!-- Education Entry -->
+
+                            <div class="education-entry">
+
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <strong>
+                                        Education 1
+                                    </strong>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-outline-danger remove-entry">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </div>
+
+
+                                <div class="row g-3">
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            Degree
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control education-degree"
+                                            placeholder="BCA / B.Tech / MBA">
+
+                                    </div>
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            College / University
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control education-college"
+                                            placeholder="University or College Name">
+
+                                    </div>
+
+
+                                    <div class="col-md-4">
+
+                                        <label class="form-label">
+                                            Start Year
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control education-start"
+                                            placeholder="2023">
+
+                                    </div>
+
+
+                                    <div class="col-md-4">
+
+                                        <label class="form-label">
+                                            End Year
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control education-end"
+                                            placeholder="2026">
+
+                                    </div>
+
+
+                                    <div class="col-md-4">
+
+                                        <label class="form-label">
+                                            Percentage / CGPA
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control education-score"
+                                            placeholder="8.5 CGPA">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- SKILLS -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-lightning text-primary"></i>
+
+                                    Skills
+
+                                </h5>
+
+                                <p>
+                                    Add your technical and soft skills.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="builder-card-body">
+
+                            <div class="input-group mb-3">
+
+                                <input
+                                    type="text"
+                                    id="skillInput"
+                                    class="form-control"
+                                    placeholder="Example: JavaScript">
+
+                                <button
+                                    class="btn btn-primary"
+                                    type="button"
+                                    id="addSkill">
+
+                                    <i class="bi bi-plus"></i>
+
+                                    Add
+
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                id="skillsContainer"
+                                class="skill-input-tags">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- WORK EXPERIENCE -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-briefcase text-primary"></i>
+
+                                    Work Experience
+
+                                </h5>
+
+                                <p>
+                                    Add your professional experience.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-primary"
+                                id="addExperience">
+
+                                <i class="bi bi-plus"></i>
+
+                                Add Experience
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="builder-card-body"
+                            id="experienceContainer">
+
+
+                            <!-- Experience Entry -->
+
+                            <div class="experience-entry">
+
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <strong>
+                                        Experience 1
+                                    </strong>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-outline-danger remove-entry">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </div>
+
+
+                                <div class="row g-3">
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Company Name
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control experience-company"
+                                            placeholder="Company Name">
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Position
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control experience-position"
+                                            placeholder="Frontend Developer">
+
+                                    </div>
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            Duration
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control experience-duration"
+                                            placeholder="June 2025 - August 2026">
+
+                                    </div>
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            Responsibilities
+                                        </label>
+
+                                        <textarea
+                                            class="form-control experience-responsibilities"
+                                            rows="4"
+                                            placeholder="Describe your responsibilities and achievements..."></textarea>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- PROJECTS -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-code-square text-primary"></i>
+
+                                    Projects
+
+                                </h5>
+
+                                <p>
+                                    Showcase your important projects.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-primary"
+                                id="addProject">
+
+                                <i class="bi bi-plus"></i>
+
+                                Add Project
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="builder-card-body"
+                            id="projectsContainer">
+
+
+                            <!-- Project Entry -->
+
+                            <div class="project-entry">
+
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <strong>
+                                        Project 1
+                                    </strong>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-outline-danger remove-entry">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </div>
+
+
+                                <div class="row g-3">
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            Project Title
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control project-title"
+                                            placeholder="AI Resume Builder">
+
+                                    </div>
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            Description
+                                        </label>
+
+                                        <textarea
+                                            class="form-control project-description"
+                                            rows="4"
+                                            placeholder="Describe your project..."></textarea>
+
+                                    </div>
+
+
+                                    <div class="col-12">
+
+                                        <label class="form-label">
+                                            Technologies Used
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control project-technologies"
+                                            placeholder="HTML, CSS, JavaScript, Bootstrap">
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            GitHub Link
+                                        </label>
+
+                                        <input
+                                            type="url"
+                                            class="form-control project-github"
+                                            placeholder="https://github.com/...">
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Live Project Link
+                                        </label>
+
+                                        <input
+                                            type="url"
+                                            class="form-control project-live"
+                                            placeholder="https://...">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- CERTIFICATIONS -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-award text-primary"></i>
+
+                                    Certifications
+
+                                </h5>
+
+                                <p>
+                                    Add your certifications and courses.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-primary"
+                                id="addCertification">
+
+                                <i class="bi bi-plus"></i>
+
+                                Add Certification
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="builder-card-body"
+                            id="certificationContainer">
+
+
+                            <div class="certification-entry">
+
+                                <div class="row g-3">
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Certification Name
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control certification-name"
+                                            placeholder="Web Development">
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Issuing Organization
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control certification-organization"
+                                            placeholder="Organization Name">
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- LANGUAGES -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-translate text-primary"></i>
+
+                                    Languages
+
+                                </h5>
+
+                                <p>
+                                    Add languages and your proficiency level.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-primary"
+                                id="addLanguage">
+
+                                <i class="bi bi-plus"></i>
+
+                                Add Language
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="builder-card-body"
+                            id="languageContainer">
+
+
+                            <div class="language-entry">
+
+                                <div class="row g-3">
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Language
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            class="form-control language-name"
+                                            placeholder="English">
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <label class="form-label">
+                                            Proficiency
+                                        </label>
+
+                                        <select
+                                            class="form-select language-level">
+
+                                            <option>
+                                                Beginner
+                                            </option>
+
+                                            <option selected>
+                                                Intermediate
+                                            </option>
+
+                                            <option>
+                                                Advanced
+                                            </option>
+
+                                            <option>
+                                                Fluent
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- ACHIEVEMENTS -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-trophy text-primary"></i>
+
+                                    Achievements
+
+                                </h5>
+
+                                <p>
+                                    Add awards, hackathons or achievements.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="builder-card-body">
+
+                            <textarea
+                                id="achievements"
+                                class="form-control live-input"
+                                rows="4"
+                                placeholder="Example: Winner of college hackathon 2025..."></textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================================= -->
+                    <!-- TEMPLATE & THEME -->
+                    <!-- ================================================= -->
+
+                    <div class="builder-card mb-4">
+
+                        <div class="builder-card-header">
+
+                            <div>
+
+                                <h5>
+
+                                    <i class="bi bi-palette text-primary"></i>
+
+                                    Resume Design
+
+                                </h5>
+
+                                <p>
+                                    Select a template and accent color.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="builder-card-body">
+
+
+                            <!-- Template -->
+
+                            <label class="form-label fw-semibold">
+
+                                Template
+
+                            </label>
+
+
+                            <div class="row g-3 mb-4">
+
+
+                                <div class="col-md-4">
+
+                                    <label class="template-option">
+
+                                        <input
+                                            type="radio"
+                                            name="template"
+                                            value="modern"
+                                            checked>
+
+                                        <div class="template-option-box">
+
+                                            <div class="template-demo modern-demo">
+
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+
+                                            </div>
+
+                                            <strong>
+                                                Modern
+                                            </strong>
+
+                                        </div>
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="col-md-4">
+
+                                    <label class="template-option">
+
+                                        <input
+                                            type="radio"
+                                            name="template"
+                                            value="professional">
+
+                                        <div class="template-option-box">
+
+                                            <div class="template-demo professional-demo">
+
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+
+                                            </div>
+
+                                            <strong>
+                                                Professional
+                                            </strong>
+
+                                        </div>
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="col-md-4">
+
+                                    <label class="template-option">
+
+                                        <input
+                                            type="radio"
+                                            name="template"
+                                            value="minimal">
+
+                                        <div class="template-option-box">
+
+                                            <div class="template-demo minimal-demo">
+
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+
+                                            </div>
+
+                                            <strong>
+                                                Minimal
+                                            </strong>
+
+                                        </div>
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Color -->
+
+                            <label class="form-label fw-semibold">
+
+                                Accent Color
+
+                            </label>
+
+
+                            <div class="color-options">
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="themeColor"
+                                        value="#0d6efd"
+                                        checked>
+
+                                    <span
+                                        class="color-circle"
+                                        style="background:#0d6efd;">
+                                    </span>
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="themeColor"
+                                        value="#0d9488">
+
+                                    <span
+                                        class="color-circle"
+                                        style="background:#0d9488;">
+                                    </span>
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="themeColor"
+                                        value="#7c3aed">
+
+                                    <span
+                                        class="color-circle"
+                                        style="background:#7c3aed;">
+                                    </span>
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="themeColor"
+                                        value="#dc2626">
+
+                                    <span
+                                        class="color-circle"
+                                        style="background:#dc2626;">
+                                    </span>
+
+                                </label>
+
+
+                                <label>
+
+                                    <input
+                                        type="radio"
+                                        name="themeColor"
+                                        value="#111827">
+
+                                    <span
+                                        class="color-circle"
+                                        style="background:#111827;">
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SAVE BUTTON -->
+
+                    <div class="builder-bottom-actions">
+
+                        <a
+                            href="dashboard.html"
+                            class="btn btn-outline-secondary">
+
+                            Cancel
+
+                        </a>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                            id="saveResume">
+
+                            <i class="bi bi-save"></i>
+
+                            Save Resume
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- RIGHT SIDE - LIVE PREVIEW -->
+                <!-- ================================================= -->
+
+                <div class="col-xl-6">
+
+
+                    <div class="preview-wrapper">
+
+
+                        <!-- Preview Header -->
+
+                        <div class="preview-header">
+
+                            <div>
+
+                                <h5 class="mb-1">
+
+                                    <i class="bi bi-eye text-primary"></i>
+
+                                    Live Preview
+
+                                </h5>
+
+                                <small class="text-secondary">
+
+                                    Your resume updates as you type.
+
+                                </small>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-primary"
+                                onclick="window.print()">
+
+                                <i class="bi bi-printer"></i>
+
+                                Print
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- ================================================= -->
+                        <!-- RESUME PAPER -->
+                        <!-- ================================================= -->
+
+                        <div
+                            class="resume-paper"
+                            id="resumePreview">
+
+
+                            <!-- Resume Header -->
+
+                            <div class="resume-preview-header">
+
+
+                                <div>
+
+                                    <h1 id="previewName">
+                                        Your Name
+                                    </h1>
+
+                                    <p id="previewTitle">
+                                        Professional
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- Contact -->
+
+                            <div
+                                class="resume-contact"
+                                id="previewContact">
+
+                                <span id="previewEmail">
+                                    your@email.com
+                                </span>
+
+                                <span id="previewPhone">
+                                    +91 98765 43210
+                                </span>
+
+                                <span id="previewAddress">
+                                    Your City
+                                </span>
+
+                            </div>
+
+
+                            <hr>
+
+
+
+                            <!-- Summary -->
+
+                            <section class="resume-section"
+                                id="previewSummarySection">
+
+                                <h3>
+                                    Professional Summary
+                                </h3>
+
+                                <p id="previewSummary">
+
+                                    Your professional summary
+                                    will appear here.
+
+                                </p>
+
+                            </section>
+
+
+
+                            <!-- Skills -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Skills
+                                </h3>
+
+                                <div
+                                    id="previewSkills"
+                                    class="preview-skill-list">
+
+                                    <span>
+                                        HTML
+                                    </span>
+
+                                    <span>
+                                        CSS
+                                    </span>
+
+                                    <span>
+                                        JavaScript
+                                    </span>
+
+                                </div>
+
+                            </section>
+
+
+
+                            <!-- Education -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Education
+                                </h3>
+
+                                <div id="previewEducation">
+
+                                    <div class="preview-entry">
+
+                                        <strong>
+                                            Your Degree
+                                        </strong>
+
+                                        <p>
+                                            University / College
+                                        </p>
+
+                                        <small>
+                                            2023 - 2026
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+
+                            <!-- Experience -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Work Experience
+                                </h3>
+
+                                <div id="previewExperience">
+
+                                    <div class="preview-entry">
+
+                                        <strong>
+                                            Your Position
+                                        </strong>
+
+                                        <p>
+                                            Company Name
+                                        </p>
+
+                                        <small>
+                                            Duration
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+
+                            <!-- Projects -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Projects
+                                </h3>
+
+                                <div id="previewProjects">
+
+                                    <div class="preview-entry">
+
+                                        <strong>
+                                            Your Project
+                                        </strong>
+
+                                        <p>
+                                            Your project description
+                                            will appear here.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+
+                            <!-- Certifications -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Certifications
+                                </h3>
+
+                                <div id="previewCertifications">
+
+                                    <p>
+                                        Your certifications will
+                                        appear here.
+                                    </p>
+
+                                </div>
+
+                            </section>
+
+
+
+                            <!-- Languages -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Languages
+                                </h3>
+
+                                <div id="previewLanguages">
+
+                                    <span>
+                                        English - Fluent
+                                    </span>
+
+                                </div>
+
+                            </section>
+
+
+
+                            <!-- Achievements -->
+
+                            <section class="resume-section">
+
+                                <h3>
+                                    Achievements
+                                </h3>
+
+                                <p id="previewAchievements">
+
+                                    Your achievements will appear here.
+
+                                </p>
+
+                            </section>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- SAVE SUCCESS MODAL -->
+    <!-- ================================================= -->
+
+    <div
+        class="modal fade"
+        id="saveSuccessModal"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-body text-center p-5">
+
+                    <div class="success-icon">
+
+                        <i class="bi bi-check-lg"></i>
+
+                    </div>
+
+                    <h4 class="mt-3">
+                        Resume Saved!
+                    </h4>
+
+                    <p class="text-secondary">
+
+                        Your resume has been saved successfully.
+
+                    </p>
+
+                    <a
+                        href="dashboard.html"
+                        class="btn btn-primary">
+
+                        Go to Dashboard
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <!-- ================================================= -->
+    <!-- BUILDER JAVASCRIPT -->
+    <!-- ================================================= -->
+
+    <script>
+
+
+        // ==============================================
+        // CHECK LOGIN
+        // ==============================================
+
+        if (
+            localStorage.getItem("resumeAILoggedIn")
+            !== "true"
+        ) {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+
+        // ==============================================
+        // HELPER
+        // ==============================================
+
+        function getValue(id) {
+
+            const element =
+                document.getElementById(id);
+
+            return element
+                ? element.value.trim()
+                : "";
+
+        }
+
+
+
+        // ==============================================
+        // LIVE PREVIEW
+        // ==============================================
+
+        function updatePreview() {
+
+
+            // Name
+
+            const name =
+                getValue("fullName");
+
+
+            document.getElementById(
+                "previewName"
+            ).textContent =
+                name || "Your Name";
+
+
+            // Email
+
+            document.getElementById(
+                "previewEmail"
+            ).textContent =
+                getValue("email") ||
+                "your@email.com";
+
+
+            // Phone
+
+            document.getElementById(
+                "previewPhone"
+            ).textContent =
+                getValue("phone") ||
+                "+91 98765 43210";
+
+
+            // Address
+
+            document.getElementById(
+                "previewAddress"
+            ).textContent =
+                getValue("address") ||
+                "Your City";
+
+
+            // Summary
+
+            const summary =
+                getValue("summary");
+
+
+            document.getElementById(
+                "previewSummary"
+            ).textContent =
+                summary ||
+                "Your professional summary will appear here.";
+
+
+            // Skills
+
+            updateSkillsPreview();
+
+
+            // Education
+
+            updateEducationPreview();
+
+
+            // Experience
+
+            updateExperiencePreview();
+
+
+            // Projects
+
+            updateProjectsPreview();
+
+
+            // Certifications
+
+            updateCertificationPreview();
+
+
+            // Languages
+
+            updateLanguagePreview();
+
+
+            // Achievements
+
+            const achievements =
+                getValue("achievements");
+
+
+            document.getElementById(
+                "previewAchievements"
+            ).textContent =
+                achievements ||
+                "Your achievements will appear here.";
+
+        }
+
+
+
+        // ==============================================
+        // LIVE INPUT EVENTS
+        // ==============================================
+
+        document
+            .querySelectorAll(".live-input")
+            .forEach(
+                function (input) {
+
+                    input.addEventListener(
+                        "input",
+                        updatePreview
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                "#fullName, #email, #phone, #address, #summary, #achievements"
+            )
+            .forEach(
+                function (input) {
+
+                    input.addEventListener(
+                        "input",
+                        updatePreview
+                    );
+
+                }
+            );
+
+
+
+        // ==============================================
+        // SKILLS
+        // ==============================================
+
+        let skills = [];
+
+
+        document
+            .getElementById("addSkill")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const input =
+                        document.getElementById(
+                            "skillInput"
+                        );
+
+
+                    const skill =
+                        input.value.trim();
+
+
+                    if (
+                        skill !== "" &&
+                        !skills.includes(skill)
+                    ) {
+
+                        skills.push(skill);
+
+                        input.value = "";
+
+                        displaySkills();
+
+                        updateSkillsPreview();
+
+                    }
+
+                }
+            );
+
+
+        function displaySkills() {
+
+
+            const container =
+                document.getElementById(
+                    "skillsContainer"
+                );
+
+
+            container.innerHTML = "";
+
+
+            skills.forEach(
+                function (skill, index) {
+
+
+                    const tag =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    tag.className =
+                        "skill-input-tag";
+
+
+                    tag.innerHTML = `
+
+                        ${skill}
+
+                        <button
+                            type="button"
+                            onclick="removeSkill(${index})">
+
+                            <i class="bi bi-x"></i>
+
+                        </button>
+
+                    `;
+
+
+                    container.appendChild(tag);
+
+                }
+            );
+
+        }
+
+
+        function removeSkill(index) {
+
+            skills.splice(index, 1);
+
+            displaySkills();
+
+            updateSkillsPreview();
+
+        }
+
+
+        function updateSkillsPreview() {
+
+
+            const container =
+                document.getElementById(
+                    "previewSkills"
+                );
+
+
+            if (skills.length === 0) {
+
+                container.innerHTML =
+                    `<span>HTML</span>
+                     <span>CSS</span>
+                     <span>JavaScript</span>`;
+
+                return;
+
+            }
+
+
+            container.innerHTML =
+                skills.map(
+                    skill =>
+                        `<span>${skill}</span>`
+                ).join("");
+
+        }
+
+
+
+        // ==============================================
+        // EDUCATION
+        // ==============================================
+
+        document
+            .getElementById("addEducation")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const container =
+                        document.getElementById(
+                            "educationContainer"
+                        );
+
+
+                    const count =
+                        container.querySelectorAll(
+                            ".education-entry"
+                        ).length + 1;
+
+
+                    const entry =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    entry.className =
+                        "education-entry mt-4";
+
+
+                    entry.innerHTML = `
+
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <strong>
+                                Education ${count}
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-danger remove-entry">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Degree
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control education-degree"
+                                    placeholder="BCA / B.Tech / MBA">
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    College / University
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control education-college"
+                                    placeholder="University Name">
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <label class="form-label">
+                                    Start Year
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control education-start"
+                                    placeholder="2023">
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <label class="form-label">
+                                    End Year
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control education-end"
+                                    placeholder="2026">
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <label class="form-label">
+                                    Percentage / CGPA
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control education-score"
+                                    placeholder="8.5 CGPA">
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(entry);
+
+
+                    entry
+                        .querySelector(".remove-entry")
+                        .addEventListener(
+                            "click",
+                            function () {
+
+                                entry.remove();
+
+                                updateEducationPreview();
+
+                            }
+                        );
+
+
+                    entry
+                        .querySelectorAll("input")
+                        .forEach(
+                            input =>
+                                input.addEventListener(
+                                    "input",
+                                    updateEducationPreview
+                                )
+                        );
+
+                }
+            );
+
+
+        function updateEducationPreview() {
+
+
+            const entries =
+                document.querySelectorAll(
+                    ".education-entry"
+                );
+
+
+            const preview =
+                document.getElementById(
+                    "previewEducation"
+                );
+
+
+            preview.innerHTML = "";
+
+
+            entries.forEach(
+                function (entry) {
+
+
+                    const degree =
+                        entry
+                            .querySelector(
+                                ".education-degree"
+                            )
+                            ?.value ||
+                        "Your Degree";
+
+
+                    const college =
+                        entry
+                            .querySelector(
+                                ".education-college"
+                            )
+                            ?.value ||
+                        "University / College";
+
+
+                    const start =
+                        entry
+                            .querySelector(
+                                ".education-start"
+                            )
+                            ?.value ||
+                        "";
+
+
+                    const end =
+                        entry
+                            .querySelector(
+                                ".education-end"
+                            )
+                            ?.value ||
+                        "";
+
+
+                    const score =
+                        entry
+                            .querySelector(
+                                ".education-score"
+                            )
+                            ?.value ||
+                        "";
+
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "preview-entry";
+
+
+                    div.innerHTML = `
+
+                        <strong>
+                            ${degree}
+                        </strong>
+
+                        <p>
+                            ${college}
+                        </p>
+
+                        <small>
+                            ${start} - ${end}
+                            ${score ? " | " + score : ""}
+                        </small>
+
+                    `;
+
+
+                    preview.appendChild(div);
+
+                }
+            );
+
+        }
+
+
+
+        // ==============================================
+        // EXPERIENCE
+        // ==============================================
+
+        document
+            .getElementById("addExperience")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const container =
+                        document.getElementById(
+                            "experienceContainer"
+                        );
+
+
+                    const count =
+                        container.querySelectorAll(
+                            ".experience-entry"
+                        ).length + 1;
+
+
+                    const entry =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    entry.className =
+                        "experience-entry mt-4";
+
+
+                    entry.innerHTML = `
+
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <strong>
+                                Experience ${count}
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-danger remove-entry">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Company Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control experience-company"
+                                    placeholder="Company Name">
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Position
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control experience-position"
+                                    placeholder="Software Developer">
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Duration
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control experience-duration"
+                                    placeholder="2025 - 2026">
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Responsibilities
+                                </label>
+
+                                <textarea
+                                    class="form-control experience-responsibilities"
+                                    rows="4"
+                                    placeholder="Describe your responsibilities..."></textarea>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(entry);
+
+
+                    entry
+                        .querySelector(".remove-entry")
+                        .addEventListener(
+                            "click",
+                            function () {
+
+                                entry.remove();
+
+                                updateExperiencePreview();
+
+                            }
+                        );
+
+
+                    entry
+                        .querySelectorAll(
+                            "input, textarea"
+                        )
+                        .forEach(
+                            input =>
+                                input.addEventListener(
+                                    "input",
+                                    updateExperiencePreview
+                                )
+                        );
+
+                }
+            );
+
+
+        function updateExperiencePreview() {
+
+
+            const entries =
+                document.querySelectorAll(
+                    ".experience-entry"
+                );
+
+
+            const preview =
+                document.getElementById(
+                    "previewExperience"
+                );
+
+
+            preview.innerHTML = "";
+
+
+            entries.forEach(
+                function (entry) {
+
+
+                    const company =
+                        entry.querySelector(
+                            ".experience-company"
+                        )?.value ||
+                        "Company Name";
+
+
+                    const position =
+                        entry.querySelector(
+                            ".experience-position"
+                        )?.value ||
+                        "Your Position";
+
+
+                    const duration =
+                        entry.querySelector(
+                            ".experience-duration"
+                        )?.value ||
+                        "Duration";
+
+
+                    const responsibilities =
+                        entry.querySelector(
+                            ".experience-responsibilities"
+                        )?.value ||
+                        "Your responsibilities will appear here.";
+
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "preview-entry";
+
+
+                    div.innerHTML = `
+
+                        <strong>
+                            ${position}
+                        </strong>
+
+                        <p>
+                            ${company}
+                        </p>
+
+                        <small>
+                            ${duration}
+                        </small>
+
+                        <p>
+                            ${responsibilities}
+                        </p>
+
+                    `;
+
+
+                    preview.appendChild(div);
+
+                }
+            );
+
+        }
+
+
+
+        // ==============================================
+        // PROJECTS
+        // ==============================================
+
+        document
+            .getElementById("addProject")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const container =
+                        document.getElementById(
+                            "projectsContainer"
+                        );
+
+
+                    const count =
+                        container.querySelectorAll(
+                            ".project-entry"
+                        ).length + 1;
+
+
+                    const entry =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    entry.className =
+                        "project-entry mt-4";
+
+
+                    entry.innerHTML = `
+
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <strong>
+                                Project ${count}
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-danger remove-entry">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Project Title
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control project-title"
+                                    placeholder="Project Title">
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Description
+                                </label>
+
+                                <textarea
+                                    class="form-control project-description"
+                                    rows="4"
+                                    placeholder="Project description"></textarea>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Technologies Used
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control project-technologies"
+                                    placeholder="HTML, CSS, JavaScript">
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    GitHub Link
+                                </label>
+
+                                <input
+                                    type="url"
+                                    class="form-control project-github"
+                                    placeholder="https://github.com/...">
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Live Project Link
+                                </label>
+
+                                <input
+                                    type="url"
+                                    class="form-control project-live"
+                                    placeholder="https://...">
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(entry);
+
+
+                    entry
+                        .querySelector(".remove-entry")
+                        .addEventListener(
+                            "click",
+                            function () {
+
+                                entry.remove();
+
+                                updateProjectsPreview();
+
+                            }
+                        );
+
+
+                    entry
+                        .querySelectorAll(
+                            "input, textarea"
+                        )
+                        .forEach(
+                            input =>
+                                input.addEventListener(
+                                    "input",
+                                    updateProjectsPreview
+                                )
+                        );
+
+                }
+            );
+
+
+        function updateProjectsPreview() {
+
+
+            const entries =
+                document.querySelectorAll(
+                    ".project-entry"
+                );
+
+
+            const preview =
+                document.getElementById(
+                    "previewProjects"
+                );
+
+
+            preview.innerHTML = "";
+
+
+            entries.forEach(
+                function (entry) {
+
+
+                    const title =
+                        entry.querySelector(
+                            ".project-title"
+                        )?.value ||
+                        "Your Project";
+
+
+                    const description =
+                        entry.querySelector(
+                            ".project-description"
+                        )?.value ||
+                        "Your project description will appear here.";
+
+
+                    const technologies =
+                        entry.querySelector(
+                            ".project-technologies"
+                        )?.value ||
+                        "";
+
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "preview-entry";
+
+
+                    div.innerHTML = `
+
+                        <strong>
+                            ${title}
+                        </strong>
+
+                        <p>
+                            ${description}
+                        </p>
+
+                        ${
+                            technologies
+                            ? `<small>
+                                Technologies: ${technologies}
+                               </small>`
+                            : ""
+                        }
+
+                    `;
+
+
+                    preview.appendChild(div);
+
+                }
+            );
+
+        }
+
+
+
+        // ==============================================
+        // CERTIFICATIONS
+        // ==============================================
+
+        document
+            .getElementById("addCertification")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const container =
+                        document.getElementById(
+                            "certificationContainer"
+                        );
+
+
+                    const entry =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    entry.className =
+                        "certification-entry mt-3";
+
+
+                    entry.innerHTML = `
+
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <strong>
+                                Certification
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-danger remove-entry">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Certification Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control certification-name"
+                                    placeholder="Certification">
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Issuing Organization
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control certification-organization"
+                                    placeholder="Organization">
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(entry);
+
+
+                    entry
+                        .querySelector(".remove-entry")
+                        .addEventListener(
+                            "click",
+                            function () {
+
+                                entry.remove();
+
+                                updateCertificationPreview();
+
+                            }
+                        );
+
+
+                    entry
+                        .querySelectorAll("input")
+                        .forEach(
+                            input =>
+                                input.addEventListener(
+                                    "input",
+                                    updateCertificationPreview
+                                )
+                        );
+
+                }
+            );
+
+
+        function updateCertificationPreview() {
+
+
+            const entries =
+                document.querySelectorAll(
+                    ".certification-entry"
+                );
+
+
+            const preview =
+                document.getElementById(
+                    "previewCertifications"
+                );
+
+
+            preview.innerHTML = "";
+
+
+            entries.forEach(
+                function (entry) {
+
+
+                    const name =
+                        entry.querySelector(
+                            ".certification-name"
+                        )?.value ||
+                        "Certification";
+
+
+                    const organization =
+                        entry.querySelector(
+                            ".certification-organization"
+                        )?.value ||
+                        "Organization";
+
+
+                    const p =
+                        document.createElement(
+                            "p"
+                        );
+
+
+                    p.innerHTML = `
+
+                        <strong>
+                            ${name}
+                        </strong>
+                        - ${organization}
+
+                    `;
+
+
+                    preview.appendChild(p);
+
+                }
+            );
+
+        }
+
+
+
+        // ==============================================
+        // LANGUAGES
+        // ==============================================
+
+        document
+            .getElementById("addLanguage")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const container =
+                        document.getElementById(
+                            "languageContainer"
+                        );
+
+
+                    const entry =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    entry.className =
+                        "language-entry mt-3";
+
+
+                    entry.innerHTML = `
+
+                        <div class="d-flex justify-content-between mb-3">
+
+                            <strong>
+                                Language
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-outline-danger remove-entry">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Language
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control language-name"
+                                    placeholder="Language">
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Proficiency
+                                </label>
+
+                                <select
+                                    class="form-select language-level">
+
+                                    <option>
+                                        Beginner
+                                    </option>
+
+                                    <option>
+                                        Intermediate
+                                    </option>
+
+                                    <option>
+                                        Advanced
+                                    </option>
+
+                                    <option selected>
+                                        Fluent
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(entry);
+
+
+                    entry
+                        .querySelector(".remove-entry")
+                        .addEventListener(
+                            "click",
+                            function () {
+
+                                entry.remove();
+
+                                updateLanguagePreview();
+
+                            }
+                        );
+
+
+                    entry
+                        .querySelector(
+                            ".language-name"
+                        )
+                        .addEventListener(
+                            "input",
+                            updateLanguagePreview
+                        );
+
+
+                    entry
+                        .querySelector(
+                            ".language-level"
+                        )
+                        .addEventListener(
+                            "change",
+                            updateLanguagePreview
+                        );
+
+                }
+            );
+
+
+        function updateLanguagePreview() {
+
+
+            const entries =
+                document.querySelectorAll(
+                    ".language-entry"
+                );
+
+
+            const preview =
+                document.getElementById(
+                    "previewLanguages"
+                );
+
+
+            preview.innerHTML = "";
+
+
+            entries.forEach(
+                function (entry) {
+
+
+                    const name =
+                        entry.querySelector(
+                            ".language-name"
+                        )?.value ||
+                        "English";
+
+
+                    const level =
+                        entry.querySelector(
+                            ".language-level"
+                        )?.value ||
+                        "Fluent";
+
+
+                    const span =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    span.textContent =
+                        `${name} - ${level}`;
+
+
+                    preview.appendChild(span);
+
+                }
+            );
+
+        }
+
+
+
+        // ==============================================
+        // REMOVE INITIAL ENTRIES
+        // ==============================================
+
+        document
+            .querySelectorAll(
+                ".remove-entry"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const entry =
+                                button.closest(
+                                    ".education-entry, .experience-entry, .project-entry, .certification-entry, .language-entry"
+                                );
+
+
+                            if (entry) {
+
+                                entry.remove();
+
+                                updateEducationPreview();
+
+                                updateExperiencePreview();
+
+                                updateProjectsPreview();
+
+                                updateCertificationPreview();
+
+                                updateLanguagePreview();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        // ==============================================
+        // TEMPLATE SELECTION
+        // ==============================================
+
+        document
+            .querySelectorAll(
+                'input[name="template"]'
+            )
+            .forEach(
+                function (radio) {
+
+                    radio.addEventListener(
+                        "change",
+                        function () {
+
+                            document
+                                .getElementById(
+                                    "resumePreview"
+                                )
+                                .className =
+                                "resume-paper " +
+                                this.value;
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        // ==============================================
+        // COLOR SELECTION
+        // ==============================================
+
+        document
+            .querySelectorAll(
+                'input[name="themeColor"]'
+            )
+            .forEach(
+                function (radio) {
+
+                    radio.addEventListener(
+                        "change",
+                        function () {
+
+                            document
+                                .getElementById(
+                                    "resumePreview"
+                                )
+                                .style
+                                .setProperty(
+                                    "--resume-color",
+                                    this.value
+                                );
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        // ==============================================
+        // COLLECT RESUME DATA
+        // ==============================================
+
+        function collectResumeData() {
+
+
+            const education = [];
+
+
+            document
+                .querySelectorAll(
+                    ".education-entry"
+                )
+                .forEach(
+                    function (entry) {
+
+                        education.push({
+
+                            degree:
+                                entry.querySelector(
+                                    ".education-degree"
+                                )?.value || "",
+
+                            college:
+                                entry.querySelector(
+                                    ".education-college"
+                                )?.value || "",
+
+                            start:
+                                entry.querySelector(
+                                    ".education-start"
+                                )?.value || "",
+
+                            end:
+                                entry.querySelector(
+                                    ".education-end"
+                                )?.value || "",
+
+                            score:
+                                entry.querySelector(
+                                    ".education-score"
+                                )?.value || ""
+
+                        });
+
+                    }
+                );
+
+
+
+            const experience = [];
+
+
+            document
+                .querySelectorAll(
+                    ".experience-entry"
+                )
+                .forEach(
+                    function (entry) {
+
+                        experience.push({
+
+                            company:
+                                entry.querySelector(
+                                    ".experience-company"
+                                )?.value || "",
+
+                            position:
+                                entry.querySelector(
+                                    ".experience-position"
+                                )?.value || "",
+
+                            duration:
+                                entry.querySelector(
+                                    ".experience-duration"
+                                )?.value || "",
+
+                            responsibilities:
+                                entry.querySelector(
+                                    ".experience-responsibilities"
+                                )?.value || ""
+
+                        });
+
+                    }
+                );
+
+
+
+            const projects = [];
+
+
+            document
+                .querySelectorAll(
+                    ".project-entry"
+                )
+                .forEach(
+                    function (entry) {
+
+                        projects.push({
+
+                            title:
+                                entry.querySelector(
+                                    ".project-title"
+                                )?.value || "",
+
+                            description:
+                                entry.querySelector(
+                                    ".project-description"
+                                )?.value || "",
+
+                            technologies:
+                                entry.querySelector(
+                                    ".project-technologies"
+                                )?.value || "",
+
+                            github:
+                                entry.querySelector(
+                                    ".project-github"
+                                )?.value || "",
+
+                            live:
+                                entry.querySelector(
+                                    ".project-live"
+                                )?.value || ""
+
+                        });
+
+                    }
+                );
+
+
+
+            const certifications = [];
+
+
+            document
+                .querySelectorAll(
+                    ".certification-entry"
+                )
+                .forEach(
+                    function (entry) {
+
+                        certifications.push({
+
+                            name:
+                                entry.querySelector(
+                                    ".certification-name"
+                                )?.value || "",
+
+                            organization:
+                                entry.querySelector(
+                                    ".certification-organization"
+                                )?.value || ""
+
+                        });
+
+                    }
+                );
+
+
+
+            const languages = [];
+
+
+            document
+                .querySelectorAll(
+                    ".language-entry"
+                )
+                .forEach(
+                    function (entry) {
+
+                        languages.push({
+
+                            name:
+                                entry.querySelector(
+                                    ".language-name"
+                                )?.value || "",
+
+                            level:
+                                entry.querySelector(
+                                    ".language-level"
+                                )?.value || ""
+
+                        });
+
+                    }
+                );
+
+
+
+            const template =
+                document
+                    .querySelector(
+                        'input[name="template"]:checked'
+                    )
+                    ?.value ||
+                "modern";
+
+
+            const themeColor =
+                document
+                    .querySelector(
+                        'input[name="themeColor"]:checked'
+                    )
+                    ?.value ||
+                "#0d6efd";
+
+
+
+            return {
+
+                id:
+                    Date.now().toString(),
+
+                name:
+                    getValue("resumeName") ||
+                    "My Resume",
+
+                personal: {
+
+                    fullName:
+                        getValue("fullName"),
+
+                    email:
+                        getValue("email"),
+
+                    phone:
+                        getValue("phone"),
+
+                    address:
+                        getValue("address"),
+
+                    linkedin:
+                        getValue("linkedin"),
+
+                    github:
+                        getValue("github"),
+
+                    website:
+                        getValue("website")
+
+                },
+
+                summary:
+                    getValue("summary"),
+
+                education:
+
+                    education,
+
+                skills:
+
+                    skills,
+
+                experience:
+
+                    experience,
+
+                projects:
+
+                    projects,
+
+                certifications:
+
+                    certifications,
+
+                languages:
+
+                    languages,
+
+                achievements:
+
+                    getValue("achievements"),
+
+                template:
+
+                    template,
+
+                themeColor:
+
+                    themeColor,
+
+                updatedAt:
+
+                    new Date().toISOString()
+
+            };
+
+        }
+
+
+
+        // ==============================================
+        // SAVE RESUME
+        // ==============================================
+
+        function saveResume() {
+
+
+            const resume =
+                collectResumeData();
+
+
+            let resumes =
+                JSON.parse(
+                    localStorage.getItem(
+                        "resumeAIResumes"
+                    )
+                ) || [];
+
+
+            // Check if editing existing resume
+
+            const urlParams =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const existingId =
+                urlParams.get("id");
+
+
+            if (existingId) {
+
+
+                const index =
+                    resumes.findIndex(
+                        item =>
+                            String(item.id) ===
+                            String(existingId)
+                    );
+
+
+                if (index !== -1) {
+
+                    resume.id =
+                        existingId;
+
+                    resumes[index] =
+                        resume;
+
+                }
+
+                else {
+
+                    resumes.push(resume);
+
+                }
+
+            }
+
+            else {
+
+                resumes.push(resume);
+
+            }
+
+
+            localStorage.setItem(
+                "resumeAIResumes",
+                JSON.stringify(resumes)
+            );
+
+
+            // Show success modal
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById(
+                        "saveSuccessModal"
+                    )
+                );
+
+
+            modal.show();
+
+        }
+
+
+
+        document
+            .getElementById("saveResume")
+            .addEventListener(
+                "click",
+                saveResume
+            );
+
+
+        document
+            .getElementById("saveResumeTop")
+            .addEventListener(
+                "click",
+                saveResume
+            );
+
+
+
+        // ==============================================
+        // INITIAL PREVIEW
+        // ==============================================
+
+        updatePreview();
+
+    </script>
+
+
+</body>
+
+</html>

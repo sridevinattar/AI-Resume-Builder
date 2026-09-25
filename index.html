@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeAI - Professional Resume Builder</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #3B2F63;
+            --primary-dark: #2D234D;
+            --accent: #8B5CF6;
+            --accent-dark: #7C3AED;
+            --accent-light: #A78BFA;
+            --lavender: #F3F0FF;
+            --lavender-dark: #EDE9FE;
+            --background: #FAF9FF;
+            --white: #FFFFFF;
+            --text: #27233A;
+            --muted: #6B7280;
+            --border: #E5E0F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: var(--primary) !important;
+            font-size: 23px;
+            letter-spacing: -0.4px;
+        }
+
+        .navbar-brand i {
+            color: var(--accent);
+        }
+
+        .brand-accent {
+            color: var(--accent);
+        }
+
+        .navbar-nav .nav-link {
+            color: #514B66 !important;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 10px;
+            padding: 9px 4px !important;
+            transition: 0.25s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--accent) !important;
+        }
+
+        .login-btn {
+            color: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 17px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .login-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .start-btn {
+            background: var(--accent);
+            color: white;
+            border-radius: 8px;
+            padding: 10px 19px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .start-btn:hover {
+            background: var(--accent-dark);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* HERO */
+        .hero-section {
+            position: relative;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(167,139,250,0.22), transparent 28%),
+                linear-gradient(120deg, #FAF9FF 0%, #F3F0FF 55%, #EDE9FE 100%);
+            padding: 70px 0 75px;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            background: rgba(139,92,246,0.07);
+            right: -140px;
+            bottom: -170px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--lavender-dark);
+            color: var(--accent-dark);
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            margin-bottom: 18px;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(38px, 5vw, 57px);
+            line-height: 1.08;
+            letter-spacing: -1.8px;
+            font-weight: 800;
+            color: var(--text);
+            max-width: 620px;
+        }
+
+        .hero-section h1 span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            max-width: 560px;
+            color: #625D73;
+            font-size: 16px;
+            line-height: 1.75;
+            margin: 22px 0 28px;
+        }
+
+        .hero-primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--accent);
+            color: white;
+            padding: 14px 23px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .hero-primary-btn:hover {
+            background: var(--accent-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--primary);
+            border: 1px solid #D8D0ED;
+            background: rgba(255,255,255,0.65);
+            padding: 13px 22px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .hero-secondary-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: white;
+        }
+
+        .hero-checks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .hero-checks span {
+            color: #6B6578;
+            font-size: 12px;
+        }
+
+        .hero-checks i {
+            color: #16A34A;
+            margin-right: 5px;
+        }
+
+        /* RESUME PREVIEW */
+        .hero-preview-area {
+            position: relative;
+            min-height: 390px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-back {
+            position: absolute;
+            width: 370px;
+            height: 350px;
+            background: #E7E0F8;
+            border-radius: 12px;
+            transform: rotate(7deg);
+            opacity: 0.75;
+        }
+
+        .resume-preview-card {
+            position: relative;
+            z-index: 2;
+            width: min(475px, 100%);
+            min-height: 350px;
+            background: white;
+            border-radius: 9px;
+            box-shadow: 0 22px 55px rgba(59,47,99,0.18);
+            overflow: hidden;
+            transform: rotate(-1.5deg);
+            display: flex;
+        }
+
+        .preview-sidebar {
+            width: 31%;
+            background: linear-gradient(180deg, #123B57 0%, #17344C 100%);
+            color: white;
+            padding: 28px 17px;
+        }
+
+        .preview-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #8B5CF6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 19px;
+        }
+
+        .preview-sidebar h6 {
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #A78BFA;
+            padding-bottom: 7px;
+            margin-bottom: 12px;
+        }
+
+        .preview-sidebar p {
+            font-size: 8px;
+            line-height: 1.5;
+            color: #E9E5FF;
+            margin-bottom: 9px;
+        }
+
+        .preview-main {
+            width: 69%;
+            padding: 30px 23px;
+        }
+
+        .preview-main h2 {
+            color: #17233A;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+
+        .preview-role {
+            color: #506A87;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .preview-rule {
+            height: 2px;
+            width: 100%;
+            background: #22C7D7;
+            margin: 10px 0 20px;
+        }
+
+        .preview-main h5 {
+            color: #24365B;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .preview-main h5 i {
+            color: var(--accent);
+        }
+
+        .preview-main p {
+            color: #4B5563;
+            font-size: 8.5px;
+            line-height: 1.55;
+            margin-bottom: 6px;
+        }
+
+        .preview-quote {
+            text-align: right;
+            color: #596175 !important;
+            font-style: italic;
+            font-size: 8px !important;
+            margin-top: 0;
+        }
+
+        /* INTRO */
+        .intro-section {
+            padding: 60px 0 35px;
+            background: white;
+        }
+
+        .section-label {
+            color: var(--accent-dark);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            color: var(--text);
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-top: 8px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-description {
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 12px auto 0;
+            font-size: 14px;
+        }
+
+        /* FEATURES */
+        .features-section {
+            padding: 60px 0 75px;
+            background: white;
+        }
+
+        .feature-card {
+            height: 100%;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 26px 23px;
+            transition: 0.25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #D8C9FA;
+            box-shadow: 0 15px 35px rgba(59,47,99,0.08);
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 11px;
+            background: var(--lavender-dark);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h5 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* TEMPLATES */
+        .templates-section {
+            padding: 70px 0 80px;
+            background: #F8F7FC;
+        }
+
+        .template-card {
+            height: 100%;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .template-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(59,47,99,0.12);
+        }
+
+        .template-preview {
+            background: #F1EFF8;
+            padding: 18px;
+            min-height: 330px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .template-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 3px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .template-info {
+            padding: 18px 19px 20px;
+        }
+
+        .template-info h5 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .template-info p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+            min-height: 38px;
+        }
+
+        .template-btn {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent-dark);
+            padding: 8px 14px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .template-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* HOW IT WORKS */
+        .how-section {
+            padding: 75px 0;
+            background: white;
+        }
+
+        .step {
+            position: relative;
+            padding: 10px 15px;
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: var(--lavender-dark);
+            border: 1px solid #D8C9FA;
+            color: var(--accent-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .step h5 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 70px 0;
+            background: #F8F7FC;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            margin-bottom: 10px;
+            border-radius: 9px !important;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            background: white;
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--accent-dark);
+            background: var(--lavender);
+        }
+
+        .accordion-body {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.65;
+            background: white;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            padding: 75px 0;
+            background: white;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 8px 0 12px;
+        }
+
+        .contact-info > p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            color: #4B5563;
+            font-size: 13px;
+        }
+
+        .contact-detail i {
+            color: var(--accent);
+            font-size: 17px;
+        }
+
+        .contact-form {
+            background: #FAF9FF;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            padding: 28px;
+        }
+
+        .form-label {
+            color: #3D3850;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border: 1px solid #DED8EC;
+            border-radius: 8px;
+            padding: 11px 13px;
+            font-size: 13px;
+            background: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(139,92,246,0.10);
+        }
+
+        .send-btn {
+            border: 0;
+            background: var(--accent);
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .send-btn:hover {
+            background: var(--accent-dark);
+        }
+
+        /* FOOTER */
+        .footer-section {
+            background: var(--primary-dark);
+            color: white;
+            padding-top: 10px;
+        }
+
+        .footer-section h4 {
+            font-size: 19px;
+        }
+
+        .footer-section h6 {
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section li,
+        .footer-section a {
+            color: #C7C1D7;
+            font-size: 12px;
+        }
+
+        .footer-section ul {
+            padding: 0;
+        }
+
+        .footer-section li {
+            list-style: none;
+            margin-bottom: 9px;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-light);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 9px;
+        }
+
+        .social-icons a {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #51466F;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E8E2F4;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .footer-section hr {
+            border-color: #51466F;
+            opacity: 0.6;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .navbar-nav {
+                padding: 15px 0;
+            }
+
+            .navbar-nav .nav-link {
+                margin: 4px 0;
+            }
+
+            .hero-section {
+                padding-top: 55px;
+            }
+
+            .hero-preview-area {
+                margin-top: 45px;
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 50px 0 60px;
+            }
+
+            .hero-section h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-preview-area {
+                min-height: 310px;
+            }
+
+            .resume-preview-card {
+                transform: scale(0.82) rotate(-1.5deg);
+            }
+
+            .preview-back {
+                transform: scale(0.82) rotate(7deg);
+            }
+
+            .hero-checks {
+                gap: 10px;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .template-preview {
+                min-height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            <i class="bi bi-file-earmark-person-fill me-1"></i>
+            Resume<span class="brand-accent">AI</span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#templates">Templates</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#how-it-works">How It Works</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+
+            <div class="d-flex gap-2">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="start-btn">Get Started</a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero-section">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 hero-content">
+
+                <div class="hero-badge">
+                    <i class="bi bi-stars"></i>
+                    SMART RESUME BUILDER
+                </div>
+
+                <h1>
+                    Build a Resume That
+                    <span>Gets You Noticed</span>
+                </h1>
+
+                <p class="hero-description">
+                    Create a polished, professional resume in minutes.
+                    Choose a modern template, add your details and
+                    download a resume that represents you confidently.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <a href="signup.html" class="hero-primary-btn">
+                        <i class="bi bi-magic"></i>
+                        Create My Resume
+                    </a>
+
+                    <a href="#templates" class="hero-secondary-btn">
+                        <i class="bi bi-eye"></i>
+                        View Templates
+                    </a>
+
+                </div>
+
+                <div class="hero-checks">
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Easy to use
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Professional templates
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        PDF ready
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Resume Preview -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-preview-area">
+
+                    <div class="preview-back"></div>
+
+                    <div class="resume-preview-card">
+
+                        <div class="preview-sidebar">
+
+                            <div class="preview-avatar">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+
+                            <h6>CONTACT</h6>
+
+                            <p>
+                                <i class="bi bi-telephone-fill"></i>
+                                +91 98765 43210
+                            </p>
+
+                            <p>
+                                <i class="bi bi-envelope-fill"></i>
+                                sridevinattar3@gmail.com
+                            </p>
+
+                            <p>
+                                <i class="bi bi-geo-alt-fill"></i>
+                                Tirupati, India
+                            </p>
+
+                            <p>
+                                <i class="bi bi-linkedin"></i>
+                                linkedin.com/in/sridevi
+                            </p>
+
+                            <p>
+                                <i class="bi bi-github"></i>
+                                github.com/sridevi
+                            </p>
+
+                        </div>
+
+
+                        <div class="preview-main">
+
+                            <h2>Sridevi</h2>
+
+                            <div class="preview-role">
+                                BCA Student
+                            </div>
+
+                            <p class="preview-quote">
+                                “Better skills today, bigger dreams tomorrow.”
+                            </p>
+
+                            <div class="preview-rule"></div>
+
+                            <h5>
+                                <i class="bi bi-mortarboard-fill"></i>
+                                Education
+                            </h5>
+
+                            <p>
+                                <strong>
+                                    Sri Venkateswara University (SVU), Tirupati
+                                </strong>
+                            </p>
+
+                            <p>
+                                BCA (Honours) &nbsp; | &nbsp; 2024 – 2027
+                            </p>
+
+                            <p>V Semester</p>
+
+                            <div class="preview-rule"></div>
+
+                            <h5>
+                                <i class="bi bi-code-slash"></i>
+                                Skills
+                            </h5>
+
+                            <p>
+                                HTML &nbsp; CSS &nbsp; JavaScript &nbsp; React
+                            </p>
+
+                            <div class="preview-rule"></div>
+
+                            <h5>
+                                <i class="bi bi-briefcase-fill"></i>
+                                Projects
+                            </h5>
+
+                            <p>
+                                Portfolio Website • MovieHub • Easy Trip
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ================= INTRODUCTION ================= -->
+
+<section class="intro-section">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <span class="section-label">
+                RESUME BUILDER
+            </span>
+
+            <h2 class="section-title">
+                Your Resume, Your <span>Career Story</span>
+            </h2>
+
+            <p class="section-description">
+                ResumeAI helps students, freshers and professionals create
+                polished resumes without spending hours formatting documents.
+                Enter your information, choose a template and prepare your
+                resume for your next opportunity.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section id="features" class="features-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-label">FEATURES</span>
+
+            <h2 class="section-title">
+                Everything You Need to Build a <span>Great Resume</span>
+            </h2>
+
+            <p class="section-description">
+                Simple tools designed to make resume creation easier.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+
+                    <h5>Easy Resume Builder</h5>
+
+                    <p>
+                        Enter your personal, education, skills,
+                        projects and experience information using
+                        simple forms.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-eye"></i>
+                    </div>
+
+                    <h5>Live Preview</h5>
+
+                    <p>
+                        See how your resume looks while you enter
+                        or edit your information.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+
+                    <h5>Multiple Templates</h5>
+
+                    <p>
+                        Choose from professional resume templates
+                        and change your design when needed.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <h5>Smart Suggestions</h5>
+
+                    <p>
+                        Get helpful suggestions for summaries,
+                        skills and project descriptions.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-download"></i>
+                    </div>
+
+                    <h5>Download PDF</h5>
+
+                    <p>
+                        Prepare your completed resume for PDF
+                        download or printing.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+
+                    <h5>Fully Responsive</h5>
+
+                    <p>
+                        Use the website comfortably on desktop,
+                        tablet or mobile devices.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TEMPLATES ================= -->
+
+<section id="templates" class="templates-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-label">TEMPLATES</span>
+
+            <h2 class="section-title">
+                Choose Your <span>Resume Style</span>
+            </h2>
+
+            <p class="section-description">
+                Start with a professionally designed template and
+                customize it with your own information.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- MODERN -->
+
+            <div class="col-md-4">
+
+                <div class="template-card">
+
+                    <div class="template-preview">
+
+                        <img src="images/templates/modern.jpg.png"
+                             alt="Modern Resume Template">
+
+                    </div>
+
+                    <div class="template-info">
+
+                        <h5>Modern</h5>
+
+                        <p>
+                            Clean and modern design for technology,
+                            creative and digital professionals.
+                        </p>
+
+                        <a href="signup.html" class="template-btn">
+                            Use Template
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFESSIONAL -->
+
+            <div class="col-md-4">
+
+                <div class="template-card">
+
+                    <div class="template-preview">
+
+                        <img src="images/templates/professional.jpg.png"
+                             alt="Professional Resume Template">
+
+                    </div>
+
+                    <div class="template-info">
+
+                        <h5>Professional</h5>
+
+                        <p>
+                            Traditional and polished layout suitable
+                            for corporate and professional roles.
+                        </p>
+
+                        <a href="signup.html" class="template-btn">
+                            Use Template
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MINIMAL -->
+
+            <div class="col-md-4">
+
+                <div class="template-card">
+
+                    <div class="template-preview">
+
+                        <img src="images/templates/minimal.jpg.png"
+                             alt="Minimal Resume Template">
+
+                    </div>
+
+                    <div class="template-info">
+
+                        <h5>Minimal</h5>
+
+                        <p>
+                            Simple and elegant design with a clean,
+                            readable professional appearance.
+                        </p>
+
+                        <a href="signup.html" class="template-btn">
+                            Use Template
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section id="how-it-works" class="how-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-label">HOW IT WORKS</span>
+
+            <h2 class="section-title">
+                Create Your Resume in <span>4 Simple Steps</span>
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4 text-center">
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">1</div>
+
+                    <h5>Create Account</h5>
+
+                    <p>
+                        Sign up and access your personal resume
+                        building area.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">2</div>
+
+                    <h5>Enter Details</h5>
+
+                    <p>
+                        Add your education, skills, projects,
+                        experience and contact details.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">3</div>
+
+                    <h5>Choose Template</h5>
+
+                    <p>
+                        Select a resume design that matches
+                        your preferred style.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="step">
+                    <div class="step-number">4</div>
+
+                    <h5>Download</h5>
+
+                    <p>
+                        Preview your resume and prepare it
+                        for download or printing.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section class="faq-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-label">FAQ</span>
+
+            <h2 class="section-title">
+                Frequently Asked <span>Questions</span>
+            </h2>
+
+        </div>
+
+
+        <div class="accordion" id="faqAccordion">
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq1">
+
+                        Is ResumeAI easy to use?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq1"
+                     class="accordion-collapse collapse show"
+                     data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Yes. The website is designed around simple
+                        steps so users can enter their information,
+                        select a template and prepare their resume.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+
+                        Can I change my resume template later?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq2"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Yes. The project is designed so users can
+                        switch between available templates without
+                        having to enter their details again.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+
+                        Can I download my resume as a PDF?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq3"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Yes. After completing your resume, it can be
+                        prepared for PDF download or printing.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5 contact-info">
+
+                <span class="section-label">CONTACT</span>
+
+                <h2>
+                    Have <span class="brand-accent">Questions?</span>
+                </h2>
+
+                <p>
+                    If you have questions or feedback about the
+                    resume builder, send us a message.
+                </p>
+
+                <div class="contact-detail">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>sridevinattar3@gmail.com</span>
+                </div>
+
+                <div class="contact-detail">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>+91 7780624906</span>
+                </div>
+
+                <div class="contact-detail">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>Tirupati, India</span>
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <form class="contact-form" onsubmit="return submitContactForm(event)">
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Name
+                            </label>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter your name"
+                                   required>
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <input type="email"
+                                   class="form-control"
+                                   placeholder="Enter your email"
+                                   required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Subject
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter subject"
+                               required>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Message
+                        </label>
+
+                        <textarea class="form-control"
+                                  rows="5"
+                                  placeholder="Write your message"
+                                  required></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="send-btn">
+                        <i class="bi bi-send me-1"></i>
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer-section">
+
+    <div class="container">
+
+        <div class="row py-5 g-4">
+
+            <div class="col-lg-5">
+
+                <h4 class="fw-bold">
+                    <i class="bi bi-file-earmark-person-fill me-1"></i>
+                    Resume<span class="brand-accent">AI</span>
+                </h4>
+
+                <p class="mt-3">
+                    Build professional resumes easily and take
+                    the next step in your career.
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h6>Product</h6>
+
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h6>Account</h6>
+
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Signup</a></li>
+                    <li><a href="forgot-password.html">Forgot Password</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h6>Follow Us</h6>
+
+                <div class="social-icons">
+
+                    <a href="https://lnkd.in/p/g7MYkuHd" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="https://sridevinattar.github.io/AI-Resume-Builder" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="text-center py-3">
+
+            <p class="mb-0">
+                © 2026 ResumeAI. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function submitContactForm(event) {
+        event.preventDefault();
+
+        alert("Thank you! Your message has been submitted.");
+
+        event.target.reset();
+
+        return false;
+    }
+</script>
+
+</body>
+</html>

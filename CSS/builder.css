@@ -1,0 +1,476 @@
+/* ========================================
+   RESUME BUILDER
+======================================== */
+
+.builder-page {
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+.builder-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.builder-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* Builder Form */
+
+.builder-form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.builder-form h1 {
+    font-size: 27px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.builder-form > p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* Builder Sections */
+
+.builder-section {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.builder-section h2 {
+    font-size: 19px;
+    color: #333;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Form Rows */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6c63ff;
+}
+
+/* Dynamic Items */
+
+.dynamic-item {
+    border: 1px solid #e3e3e3;
+    background: #fafafa;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.dynamic-item h4 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Add / Remove Buttons */
+
+.add-btn {
+    border: 1px dashed #6c63ff;
+    background: #f7f6ff;
+    color: #5b53d6;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.add-btn:hover {
+    background: #eceaff;
+}
+
+.remove-btn {
+    border: none;
+    background: #ffe9e9;
+    color: #d63031;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.remove-btn:hover {
+    background: #ffd5d5;
+}
+
+/* Skills */
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eceaff;
+    color: #554dd1;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.skill-tag button {
+    border: none;
+    background: transparent;
+    color: #554dd1;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Template Selection */
+
+.template-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.template-option {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    background: white;
+}
+
+.template-option:hover {
+    border-color: #6c63ff;
+}
+
+.template-option.active {
+    border-color: #6c63ff;
+    background: #f6f5ff;
+}
+
+.template-option img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.template-option span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Color Options */
+
+.color-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px #ddd;
+    cursor: pointer;
+}
+
+.color-option.active {
+    box-shadow: 0 0 0 2px #333;
+}
+
+/* Preview */
+
+.builder-preview {
+    position: sticky;
+    top: 20px;
+}
+
+.preview-container {
+    background: #dfe3e8;
+    padding: 25px;
+    border-radius: 12px;
+    min-height: 700px;
+    overflow: auto;
+}
+
+.preview-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.resume-preview {
+    width: 100%;
+    max-width: 800px;
+    min-height: 1050px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Preview Header */
+
+.resume-preview-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #6c63ff;
+    margin-bottom: 20px;
+}
+
+.resume-preview-header h1 {
+    font-size: 30px;
+    color: #222;
+    margin-bottom: 7px;
+}
+
+.resume-preview-header p {
+    color: #666;
+    font-size: 13px;
+}
+
+/* Preview Sections */
+
+.preview-section {
+    margin-bottom: 20px;
+}
+
+.preview-section h2 {
+    font-size: 17px;
+    color: #6c63ff;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.preview-section p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.preview-item {
+    margin-bottom: 12px;
+}
+
+.preview-item h3 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.preview-item .date {
+    font-size: 12px;
+    color: #777;
+}
+
+.preview-item p {
+    margin-top: 5px;
+}
+
+/* Builder Actions */
+
+.builder-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.builder-actions button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.save-resume {
+    background: #6c63ff;
+    color: white;
+}
+
+.preview-resume {
+    background: #e9e7ff;
+    color: #5149d0;
+}
+
+.download-resume {
+    background: #222;
+    color: white;
+}
+
+.print-resume {
+    background: #eee;
+    color: #333;
+}
+
+/* Profile Photo */
+
+.profile-photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.profile-photo-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+
+    .builder-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .builder-preview {
+        position: static;
+    }
+
+    .resume-preview {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .builder-container {
+        width: 94%;
+        padding: 20px 0;
+    }
+
+    .builder-form {
+        padding: 18px;
+    }
+
+    .builder-section {
+        padding: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .template-options {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-container {
+        padding: 10px;
+    }
+
+    .resume-preview {
+        padding: 25px 18px;
+    }
+
+    .resume-preview-header h1 {
+        font-size: 24px;
+    }
+}
+
+/* Print */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    .builder-form,
+    .builder-actions,
+    .preview-title,
+    .navbar,
+    footer {
+        display: none !important;
+    }
+
+    .builder-layout {
+        display: block;
+    }
+
+    .builder-preview {
+        position: static;
+    }
+
+    .preview-container {
+        padding: 0;
+        background: white;
+    }
+
+    .resume-preview {
+        box-shadow: none;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+}
+
